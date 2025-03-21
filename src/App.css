@@ -1,0 +1,46 @@
+body {
+  background-color: whitesmoke;
+}
+
+p {
+  margin: 0;
+  padding: 0;
+}
+
+.leftpart {
+  width: 30%;
+  background: white;
+}
+.rightpart {
+  width: 70%;
+  height: calc(100vh - 61px);
+  overflow-y: scroll;
+}
+.flex {
+  display: flex;
+  flex-direction: row;
+  /* gap: 10px; */
+  margin: 0 10px;
+}
+
+@media only screen and (min-width: 320px) and (max-width: 641px) {
+  .leftpart {
+    display: none;
+  }
+  .Header-Warapper .full-list {
+    display: none;
+  }
+  .rightpart {
+    display: flex;
+    flex-direction: column;
+    width: unset;
+    height: unset;
+    margin: 10px;
+  }
+  .flex {
+    display: block;
+    /* flex-direction: row; */
+    /* gap: 10px; */
+    margin: 0px;
+  }
+}

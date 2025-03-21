@@ -1,0 +1,92 @@
+.full {
+  border: 1px solid rgb(235, 229, 229);
+  border-radius: 0.25rem;
+  border-bottom: none;
+}
+.header {
+  display: flex;
+  padding: 12px;
+  flex-direction: row;
+  align-items: center;
+  /* justify-content: space-between; */
+  background-color: rgba(96, 152, 241, 0.089);
+  /* height: 30px; */
+  /* margin-bottom: 10px; */
+  gap: 30px;
+}
+.header .watchlist {
+  color: rgb(117 62 215);
+  font-size: 0.875rem;
+  text-align: center;
+  /* border-bottom: 1px solid rgb(117 62 215); */
+}
+.button {
+  display: flex;
+}
+.button .list {
+  display: flex;
+  gap: 10px;
+  padding: 10px;
+  justify-content: space-between;
+}
+.list div {
+  border: 1px solid rgb(235, 229, 229);
+  padding: 4px 12px;
+  border-radius: 0.25rem;
+}
+.input {
+  padding: 6px 10px;
+  height: 30px;
+  border: 1px solid rgb(235, 229, 229);
+  display: flex;
+  margin: 10px;
+  align-items: center;
+  border-radius: 4px;
+}
+.input input {
+  border: none;
+  width: 80%;
+  padding-left: 10px;
+}
+
+.input input:focus {
+  outline-style: none;
+}
+.input div {
+  width: 20px;
+}
+
+.showdata .data {
+  border-bottom: 1px solid rgb(235, 229, 229);
+  margin-top: 10px;
+}
+.showdata .firstline,
+.secondline,
+.thirdline {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 3px 14px;
+  font-size: 14px;
+}
+
+.showdata,
+.secondline,
+.thirdline {
+  font-size: 12px;
+}
+
+.showdata {
+  height: calc(100vh - 243px);
+  overflow-y: scroll;
+}
+.showdata .color-values {
+  display: flex;
+  gap: 10px;
+}
+.showdata .green-val {
+  color: rgb(71, 182, 71);
+}
+.showdata .red-val {
+  color: rgb(241, 104, 104);
+}
