@@ -6,7 +6,7 @@ function Positions() {
   const [activetab, setActivetab] = useState("All Positions");
 
   return (
-    <div className="position">
+    <div className="position-wrapper">
       <div className="header">
         <div className="left-part">
           {headervalue.map((data) => (
