@@ -14,8 +14,17 @@
   /* margin-bottom: 10px; */
   gap: 30px;
 }
-.header .watchlist {
+.full .header {
+  cursor: pointer;
+}
+.header .active {
   color: rgb(117 62 215);
+  font-size: 0.875rem;
+  text-align: center;
+  /* border-bottom: 1px solid rgb(117 62 215); */
+}
+.header .not-active {
+  color: black;
   font-size: 0.875rem;
   text-align: center;
   /* border-bottom: 1px solid rgb(117 62 215); */
@@ -89,4 +98,45 @@
 }
 .showdata .red-val {
   color: rgb(241, 104, 104);
+}
+.predefined-list .pdl-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 10px;
+}
+.pdl-header .buttons {
+  display: flex;
+  gap: 10px;
+}
+
+.pdl-header .buttons div {
+  background: white;
+  display: flex;
+  align-items: center;
+  font-size: 13px;
+  padding: 6px 5px;
+  border: 1px solid rgb(235, 229, 229);
+  border-radius: 0.25rem;
+  cursor: pointer;
+}
+.pdl-header .svg {
+  display: none;
+}
+.pdl-header .buttons .btn-active {
+  border: 1px solid #753ed7;
+  color: #753ed7;
+}
+
+.option-chain .oc-header .buttons {
+  gap: 14px;
+  display: flex;
+  padding: 10px;
+}
+.option-chain .oc-header .buttons input {
+  width: 110px;
+  height: 25px;
+  border-radius: 0.25rem;
+  border: 1px solid rgb(235, 229, 229);
+  padding-left: 4px;
 }

@@ -1,7 +1,11 @@
 import React from "react";
+import { Link, useLocation } from "react-router-dom";
 import "./Navigation.css";
 
 function Navigation() {
+  const location = useLocation();
+  const currentPath = location.pathname;
+
   return (
     <div className="Header-Warapper">
       <div className="Mobile-Header">
@@ -21,26 +25,27 @@ function Navigation() {
               <img
                 src="https://web.gopocket.in/assets/client-logo-e37e1491.svg"
                 alt="Logo"
-              ></img>
+              />
             </div>
           </div>
-          <div class="user">
-            <p class="circle">RA</p>
+          <div className="user">
+            <p className="circle">RA</p>
           </div>
         </div>
       </div>
-      <div class="full-list">
-        <div class="first-half">
-          <div class="containerr">
+
+      <div className="full-list">
+        <div className="first-half">
+          <div className="containerr">
             <div>NIFTY 50</div>
-            <div class="below">
+            <div className="below">
               <div>22834.30</div>
               <div>(1.45%)</div>
             </div>
           </div>
-          <div class="containerr">
+          <div className="containerr">
             <div>IDEA-EQ</div>
-            <div class="below">
+            <div className="below">
               <div>7.10</div>
               <div>(2.31%)</div>
             </div>
@@ -49,20 +54,62 @@ function Navigation() {
             <img
               src="https://web.gopocket.in/assets/client-logo-e37e1491.svg"
               alt="Logo"
-            ></img>
+            />
           </div>
         </div>
 
-        <div class="second-half">
-          <p className="active">Dashboard</p>
-          <p>Orders</p>
-          <p>Holdings</p>
-          <p>Positions</p>
-          <p>IPO</p>
-          <p>Funds</p>
-          <div class="vertical-bar"></div>
-          <div class="user">
-            <p class="circle">RA</p>
+        <div className="second-half">
+          <p>
+            <Link
+              to="/dashboard"
+              className={currentPath === "/dashboard" ? "active" : "nav-link"}
+            >
+              Dashboard
+            </Link>
+          </p>
+          <p>
+            <Link
+              to="/order"
+              className={currentPath === "/order" ? "active" : "nav-link"}
+            >
+              Orders
+            </Link>
+          </p>
+          <p>
+            <Link
+              to="/holdings"
+              className={currentPath === "/holdings" ? "active" : "nav-link"}
+            >
+              Holdings
+            </Link>
+          </p>
+          <p>
+            <Link
+              to="/position"
+              className={currentPath === "/position" ? "active" : "nav-link"}
+            >
+              Positions
+            </Link>
+          </p>
+          <p>
+            <Link
+              to="/ipolist"
+              className={currentPath === "/ipolist" ? "active" : "nav-link"}
+            >
+              IPO
+            </Link>
+          </p>
+          <p>
+            <Link
+              to="/funds"
+              className={currentPath === "/funds" ? "active" : "nav-link"}
+            >
+              Funds
+            </Link>
+          </p>
+          <div className="vertical-bar"></div>
+          <div className="user">
+            <p className="circle">RA</p>
             <p>SKY32514</p>
           </div>
         </div>

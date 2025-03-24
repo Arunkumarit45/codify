@@ -1,0 +1,17 @@
+.ipo {
+  background: white;
+  border: 1px solid rgb(235, 229, 229);
+  border-radius: 0.25rem;
+  margin-left: 10px;
+}
+.ipo .header .dash {
+  color: rgb(117 62 215);
+}
+.ipo .header {
+  display: flex;
+  gap: 10px;
+  cursor: pointer;
+}
+.ipo .header .symbol {
+  display: flex;
+}
