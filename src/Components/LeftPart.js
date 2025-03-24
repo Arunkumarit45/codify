@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import "./LeftPart.css";
 
 function LeftPart() {
@@ -83,79 +83,198 @@ function LeftPart() {
     },
   ];
 
+  const headerValue = ["Watchlist", "Predefined list", "Option chain"];
+  const [activetab, setActivetab] = useState("Watchlist");
+  const [searchValue, setSearchValue] = useState("");
+  const pdlList = ["NIFTY 50", "NIFTY BANK"];
+  const [pdlactive, setPdlActive] = useState("NIFTY 50");
+  const filteredData = searchValue
+    ? data.filter((item) =>
+        item.name.toLowerCase().includes(searchValue.toLowerCase())
+      )
+    : data;
+
   return (
     <div className="full">
-      <div class="header">
-        <div class="watchlist">Watchlist</div>
-        <div>Predefined list</div>
-        <div>Option chain</div>
-      </div>
-      <div class="button">
-        <div class="list">
-          <div>1</div>
-          <div>2</div>
-          <div>3</div>
-          <div>4</div>
-          <div>5</div>
-        </div>
-        <div class="svg">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke-width="1.5"
-            stroke="currentColor"
+      <div className="header">
+        {headerValue.map((data) => (
+          <div
+            className={`${activetab === data ? "active" : "not-active"}`}
+            onClick={() => setActivetab(data)}
           >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              d="M4.5 12a7.5 7.5 0 0 0 15 0m-15 0a7.5 7.5 0 1 1 15 0m-15 0H3m16.5 0H21m-1.5 0H12m-8.457 3.077 1.41-.513m14.095-5.13 1.41-.513M5.106 17.785l1.15-.964m11.49-9.642 1.149-.964M7.501 19.795l.75-1.3m7.5-12.99.75-1.3m-6.063 16.658.26-1.477m2.605-14.772.26-1.477m0 17.726-.26-1.477M10.698 4.614l-.26-1.477M16.5 19.794l-.75-1.299M7.5 4.205 12 12m6.894 5.785-1.149-.964M6.256 7.178l-1.15-.964m15.352 8.864-1.41-.513M4.954 9.435l-1.41-.514M12.002 12l-3.75 6.495"
-            ></path>
-          </svg>
-        </div>
+            {data}
+          </div>
+        ))}
       </div>
-      <div class="input">
-        <div>
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            height="24px"
-            viewBox="0 -960 960 960"
-            width="24px"
-            fill="#1f1f1f"
-          >
-            <path d="M784-120 532-372q-30 24-69 38t-83 14q-109 0-184.5-75.5T120-580q0-109 75.5-184.5T380-840q109 0 184.5 75.5T640-580q0 44-14 83t-38 69l252 252-56 56ZM380-400q75 0 127.5-52.5T560-580q0-75-52.5-127.5T380-760q-75 0-127.5 52.5T200-580q0 75 52.5 127.5T380-400Z" />
-          </svg>
-        </div>
-        <input
-          type="text"
-          placeholder="Search eg: INFY, NIFTY, CRUDEOIL etc., "
-        />
-        <div>9/30</div>
-      </div>
-      <div class="showdata">
-        {data &&
-          data.map((dat) => (
-            <div key={dat.name}>
-              <div className="data">
-                <div className="firstline">
-                  <div> {dat.name} </div>
-                  <div> {dat.amount} </div>
-                </div>
-                <div className="secondline">
-                  <div> {dat.type} </div>
-                  <div> {dat.value} </div>
-                </div>
-                <div class="thirdline">
-                  <div className="color-values">
-                    <div className="green-val"> {dat.greenvalue} </div>
-                    <div className="red-val"> {dat.redvalue} </div>
-                  </div>
-                  <div>{dat.vol}</div>
-                </div>
-              </div>
+
+      {activetab === "Watchlist" && (
+        <div className="watchlist">
+          <div class="button">
+            <div class="list">
+              <div>1</div>
+              <div>2</div>
+              <div>3</div>
+              <div>4</div>
+              <div>5</div>
             </div>
-          ))}
-      </div>
+            <div class="svg">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M4.5 12a7.5 7.5 0 0 0 15 0m-15 0a7.5 7.5 0 1 1 15 0m-15 0H3m16.5 0H21m-1.5 0H12m-8.457 3.077 1.41-.513m14.095-5.13 1.41-.513M5.106 17.785l1.15-.964m11.49-9.642 1.149-.964M7.501 19.795l.75-1.3m7.5-12.99.75-1.3m-6.063 16.658.26-1.477m2.605-14.772.26-1.477m0 17.726-.26-1.477M10.698 4.614l-.26-1.477M16.5 19.794l-.75-1.299M7.5 4.205 12 12m6.894 5.785-1.149-.964M6.256 7.178l-1.15-.964m15.352 8.864-1.41-.513M4.954 9.435l-1.41-.514M12.002 12l-3.75 6.495"
+                ></path>
+              </svg>
+            </div>
+          </div>
+          <div class="input">
+            <div>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                height="24px"
+                viewBox="0 -960 960 960"
+                width="24px"
+                fill="#1f1f1f"
+              >
+                <path d="M784-120 532-372q-30 24-69 38t-83 14q-109 0-184.5-75.5T120-580q0-109 75.5-184.5T380-840q109 0 184.5 75.5T640-580q0 44-14 83t-38 69l252 252-56 56ZM380-400q75 0 127.5-52.5T560-580q0-75-52.5-127.5T380-760q-75 0-127.5 52.5T200-580q0 75 52.5 127.5T380-400Z" />
+              </svg>
+            </div>
+            <input
+              type="text"
+              value={searchValue}
+              onChange={(e) => setSearchValue(e.target.value)}
+              placeholder="Search eg: INFY, NIFTY, CRUDEOIL etc., "
+            />
+            <div>9/30</div>
+          </div>
+          <div class="showdata">
+            {filteredData &&
+              filteredData.map((dat) => (
+                <div key={dat.name}>
+                  <div className="data">
+                    <div className="firstline">
+                      <div> {dat.name} </div>
+                      <div> {dat.amount} </div>
+                    </div>
+                    <div className="secondline">
+                      <div> {dat.type} </div>
+                      <div> {dat.value} </div>
+                    </div>
+                    <div class="thirdline">
+                      <div className="color-values">
+                        <div className="green-val"> {dat.greenvalue} </div>
+                        <div className="red-val"> {dat.redvalue} </div>
+                      </div>
+                      <div>{dat.vol}</div>
+                    </div>
+                  </div>
+                </div>
+              ))}
+          </div>
+        </div>
+      )}
+      {activetab === "Predefined list" && (
+        <div className="predefined-list">
+          <div className="pdl-header">
+            <div className="buttons">
+              {pdlList.map((data) => (
+                <div
+                  className={`${
+                    pdlactive === data ? "btn-active" : "btn-not-active"
+                  }`}
+                  onClick={() => setPdlActive(data)}
+                >
+                  {data}
+                </div>
+              ))}
+            </div>
+            <div class="svg">
+              <button>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke-width="1.5"
+                  stroke="currentColor"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M4.5 12a7.5 7.5 0 0 0 15 0m-15 0a7.5 7.5 0 1 1 15 0m-15 0H3m16.5 0H21m-1.5 0H12m-8.457 3.077 1.41-.513m14.095-5.13 1.41-.513M5.106 17.785l1.15-.964m11.49-9.642 1.149-.964M7.501 19.795l.75-1.3m7.5-12.99.75-1.3m-6.063 16.658.26-1.477m2.605-14.772.26-1.477m0 17.726-.26-1.477M10.698 4.614l-.26-1.477M16.5 19.794l-.75-1.299M7.5 4.205 12 12m6.894 5.785-1.149-.964M6.256 7.178l-1.15-.964m15.352 8.864-1.41-.513M4.954 9.435l-1.41-.514M12.002 12l-3.75 6.495"
+                  ></path>
+                </svg>
+              </button>
+            </div>
+          </div>
+          <div class="showdata">
+            {data &&
+              (pdlactive === "NIFTY 50" ? [...data].reverse() : data).map(
+                (dat) => (
+                  <div key={dat.name}>
+                    <div className="data">
+                      <div className="firstline">
+                        <div> {dat.name} </div>
+                        <div> {dat.amount} </div>
+                      </div>
+                      <div className="secondline">
+                        <div> {dat.type} </div>
+                        <div> {dat.value} </div>
+                      </div>
+                      <div class="thirdline">
+                        <div className="color-values">
+                          <div className="green-val"> {dat.greenvalue} </div>
+                          <div className="red-val"> {dat.redvalue} </div>
+                        </div>
+                        <div>{dat.vol}</div>
+                      </div>
+                    </div>
+                  </div>
+                )
+              )}
+          </div>
+        </div>
+      )}
+      {activetab === "Option chain" && (
+        <div className="option-chain">
+          <div className="oc-header">
+            <div className="buttons">
+              <input type="text" value="NFO" />
+              <input type="text" value="NIFTY" />
+              <input type="text" value="25MAR25" />
+            </div>
+          </div>
+          <div class="showdata">
+            {data &&
+              data.map((dat) => (
+                <div key={dat.name}>
+                  <div className="data">
+                    <div className="firstline">
+                      <div> {dat.name} </div>
+                      <div> {dat.amount} </div>
+                    </div>
+                    <div className="secondline">
+                      <div> {dat.type} </div>
+                      <div> {dat.value} </div>
+                    </div>
+                    <div class="thirdline">
+                      <div className="color-values">
+                        <div className="green-val"> {dat.greenvalue} </div>
+                        <div className="red-val"> {dat.redvalue} </div>
+                      </div>
+                      <div>{dat.vol}</div>
+                    </div>
+                  </div>
+                </div>
+              ))}
+          </div>
+        </div>
+      )}
     </div>
   );
 }

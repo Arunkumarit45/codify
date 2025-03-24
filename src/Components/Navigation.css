@@ -49,6 +49,11 @@
 
 .second-half .active {
   color: rgb(117 62 215);
+  text-decoration: none;
+}
+.second-half .nav-link {
+  color: black;
+  text-decoration: none;
 }
 .vertical-bar {
   height: 2rem;
