@@ -1,11 +1,11 @@
-.positions {
+.position {
   background: white;
   border: 1px solid rgb(235, 229, 229);
   border-radius: 0.25rem;
   margin-left: 10px;
 }
 
-.positions .header {
+.position .header {
   display: flex;
   padding: 11px;
   flex-direction: row;
@@ -16,7 +16,7 @@
   /* margin-bottom: 10px; */
   /* gap: 30px; */
 }
-.positions .left-part {
+.position .left-part {
   display: flex;
   /* padding: 12px; */
   flex-direction: row;
@@ -29,7 +29,7 @@
   padding-right: 100px;
   cursor: pointer;
 }
-.positions .header-right-part {
+.position .header-right-part {
   background: white;
   width: 96px;
   height: 22px;
@@ -38,15 +38,15 @@
   display: flex;
   align-items: center;
 }
-.positions .header-right-part .search {
+.position .header-right-part .search {
   display: flex;
   align-items: center;
   gap: 5px;
 }
-.positions .header-right-part .svg {
+.position .header-right-part .svg {
   display: flex;
 }
-.positions .header-right-part input {
+.position .header-right-part input {
   width: 55px;
   border: none;
 }

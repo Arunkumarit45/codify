@@ -3,7 +3,7 @@ import "./Holdings.css";
 
 function Holdings() {
   return (
-    <div className="holdings">
+    <div className="holding">
       <div className="header">Holdings (3)</div>
 
       <div className="body">
