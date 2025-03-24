@@ -50,6 +50,10 @@
   width: 55px;
   border: none;
 }
+
+.orders .header-right-part input:focus {
+  outline: none;
+}
 .orders .header-left-part .active {
   color: rgb(117 62 215);
 }

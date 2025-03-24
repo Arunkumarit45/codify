@@ -19,7 +19,6 @@ p {
 .flex {
   display: flex;
   flex-direction: row;
-  /* gap: 10px; */
   margin: 0 10px;
 }
 
@@ -39,8 +38,10 @@ p {
   }
   .flex {
     display: block;
-    /* flex-direction: row; */
-    /* gap: 10px; */
     margin: 0px;
   }
+}
+
+input:focus {
+  outline: none;
 }
